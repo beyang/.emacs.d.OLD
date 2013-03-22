@@ -1,5 +1,7 @@
 (message "Running init.el")
-(add-to-list 'load-path (file-name-directory load-file-name))
+(let ((emacs-home (file-name-directory load-file-name)))
+  (add-to-list 'load-path emacs-home)
+  (add-to-list 'load-path (concat emacs-home "/manual")))
 
 ;; Post-package-load initialization
 (add-hook 'after-init-hook #'(lambda () (load "post-init.el")))
@@ -32,3 +34,10 @@
 
 ;; Coffee-mode
 (setq coffee-tab-width 2)  ; tabs are 2 spaces
+
+;; Handlebars-mode
+(require 'handlebars-mode)
+(add-to-list 'auto-mode-alist '("\\.hbs.html$" . handlebars-mode))
+(add-hook 'handlebars-mode-hook (lambda ()  ; Comment-syntax kludge
+				  (setq comment-start "{{!")
+				  (setq comment-end "}}")))
