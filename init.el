@@ -30,3 +30,5 @@
 			     (blink-matching-open))))
     (when matching-text (message matching-text))))
 
+;; Coffee-mode
+(setq coffee-tab-width 2)  ; tabs are 2 spaces
