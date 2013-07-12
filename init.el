@@ -64,7 +64,7 @@
 	(revert-buffer t t t) )))
   (message "Refreshed open files.") )
 
-;; go-mode custom
+;; go-mode latest (hard-linked to $GOROOT/misc/emacs/...)
 (require 'go-mode-load)
 (defun go-custom ()
   "go-mode-hook"
@@ -78,8 +78,8 @@
 (add-hook 'go-mode-hook (lambda () (local-set-key (kbd "C-c i") 'go-goto-imports)))
 (add-hook 'go-mode-hook (lambda () (local-set-key (kbd "M-.") 'godef-jump)))
 
-(eval-after-load "go-mode"
-  '(require 'flymake-go))
+;; (eval-after-load "go-mode"
+;;   '(require 'flymake-go))
 
 ;; ;; js tabs
 ;; (add-hook 'js2-mode-hook 'my-disable-indent-tabs-mode)

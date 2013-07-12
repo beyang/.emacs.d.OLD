@@ -1,0 +1,1 @@
+/Users/beyang/dev/go/go/misc/emacs/go-mode.el
