@@ -105,3 +105,10 @@
 ;;                 " *, *" t))
 ;;          ))
 ;;      ))
+
+;; golang autocomplete
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+;; (setq ac-auto-start nil)
+;; (ac-set-trigger-key "TAB")
+(global-set-key "\M-/" 'auto-complete)
