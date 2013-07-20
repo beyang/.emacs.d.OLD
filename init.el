@@ -112,3 +112,10 @@
 (setq ac-auto-start nil)
 ;; (ac-set-trigger-key "TAB")
 (global-set-key "\M-/" 'auto-complete)
+
+
+;; windmove keys
+(global-set-key (kbd "C-x <up>") 'windmove-up)
+(global-set-key (kbd "C-x <down>") 'windmove-down)
+(global-set-key (kbd "C-x <left>") 'windmove-left)
+(global-set-key (kbd "C-x <right>") 'windmove-right)
