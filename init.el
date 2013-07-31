@@ -41,6 +41,9 @@
 			     (blink-matching-open))))
     (when matching-text (message matching-text))))
 
+;; Open pop-to-buffer in vertically adjacent buffer (rather than horizontal)
+(setq split-height-threshold nil)
+
 ;; Coffee-mode
 (setq coffee-tab-width 2)  ; tabs are 2 spaces
 
