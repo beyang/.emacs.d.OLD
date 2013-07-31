@@ -78,9 +78,6 @@
 (add-hook 'go-mode-hook (lambda () (local-set-key (kbd "C-c i") 'go-goto-imports)))
 (add-hook 'go-mode-hook (lambda () (local-set-key (kbd "M-.") 'godef-jump)))
 
-;; (eval-after-load "go-mode"
-;;   '(require 'flymake-go))
-
 ;; ;; js tabs
 ;; (add-hook 'js2-mode-hook 'my-disable-indent-tabs-mode)
 ;; (defun my-disable-indent-tabs-mode ()
@@ -105,6 +102,9 @@
 ;;                 " *, *" t))
 ;;          ))
 ;;      ))
+
+(eval-after-load "go-mode"
+  '(require 'flymake-go))
 
 ;; golang autocomplete
 (require 'go-autocomplete)
