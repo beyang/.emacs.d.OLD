@@ -115,7 +115,8 @@
 (setq ac-auto-start nil)
 ;; (ac-set-trigger-key "TAB")
 (global-set-key "\M-/" 'auto-complete)
-
+(global-auto-complete-mode t)
+(add-to-list 'ac-modes 'go-mode)
 
 ;; windmove keys
 (global-set-key (kbd "C-x <up>") 'windmove-up)
@@ -126,3 +127,7 @@
 ;; yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'ac-modes 'markdown-mode)
