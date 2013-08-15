@@ -81,6 +81,12 @@
 (add-hook 'go-mode-hook (lambda () (local-set-key (kbd "C-c i") 'go-goto-imports)))
 (add-hook 'go-mode-hook (lambda () (local-set-key (kbd "M-.") 'godef-jump)))
 
+;; js2-mode
+;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; js-mode
+(setq js-indent-level 2)
+
 ;; ;; js tabs
 ;; (add-hook 'js2-mode-hook 'my-disable-indent-tabs-mode)
 ;; (defun my-disable-indent-tabs-mode ()
