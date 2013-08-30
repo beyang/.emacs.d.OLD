@@ -137,3 +137,6 @@
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'ac-modes 'markdown-mode)
+
+;; Note: disabled the parens and quote witch in emacs starter kit
+;; (search 'ack paredit-open-curly .')
