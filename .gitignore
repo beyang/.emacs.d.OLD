@@ -1,4 +1,10 @@
 auto-save-list
+backups
+places
+ac-comphist.dat
+eshell/history
+.smex-items
+url
 
 # Don't keep track of things managed by ELPA
 elpa
