@@ -140,3 +140,5 @@
 
 ;; Note: disabled the parens and quote witch in emacs starter kit
 ;; (search 'ack paredit-open-curly .')
+
+(setq-default fill-column 150)
