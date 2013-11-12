@@ -2,7 +2,7 @@
 (let ((emacs-home (file-name-directory load-file-name)))
   (add-to-list 'load-path emacs-home)
   (add-to-list 'load-path (concat emacs-home "/manual"))
-  (add-to-list 'load-path (concat emacs-home "/manual/go-mode") t)
+  ;; (add-to-list 'load-path (concat emacs-home "/manual/go-mode") t)
 )
 
 ;; Post-package-load initialization
@@ -67,6 +67,9 @@
 	(revert-buffer t t t) )))
   (message "Refreshed open files.") )
 
+;; js-mode
+(setq js-indent-level 2)
+
 ;; go-mode latest (hard-linked to $GOROOT/misc/emacs/...)
 (require 'go-mode-load)
 (defun go-custom ()
@@ -81,20 +84,17 @@
 (add-hook 'go-mode-hook (lambda () (local-set-key (kbd "C-c i") 'go-goto-imports)))
 (add-hook 'go-mode-hook (lambda () (local-set-key (kbd "M-.") 'godef-jump)))
 
-;; js-mode
-(setq js-indent-level 2)
-
-(eval-after-load "go-mode"
-  '(require 'flymake-go))
-
 ;; golang autocomplete
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (setq ac-auto-start nil)
-;; (ac-set-trigger-key "TAB")
+(ac-set-trigger-key "TAB")
 (global-set-key "\M-/" 'auto-complete)
 (global-auto-complete-mode t)
 (add-to-list 'ac-modes 'go-mode)
+
+(eval-after-load "go-mode"
+  '(require 'flymake-go))
 
 ;; windmove keys
 (global-set-key (kbd "C-x <up>") 'windmove-up)
@@ -113,4 +113,5 @@
 ;; Note: disabled the parens and quote witch in emacs starter kit
 ;; (search 'ack paredit-open-curly .')
 
+;; misc
 (setq-default fill-column 150)
