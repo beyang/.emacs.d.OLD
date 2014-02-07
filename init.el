@@ -70,7 +70,8 @@
 ;; js-mode
 (setq js-indent-level 2)
 
-;; go-mode latest (hard-linked to $GOROOT/misc/emacs/...)
+;; go-mode latest (hard-linked to $GOROOT/misc/emacs/...), use goimports instead of gofmt
+(setq gofmt-command "goimports")
 (require 'go-mode-load)
 (defun go-custom ()
   "go-mode-hook"
