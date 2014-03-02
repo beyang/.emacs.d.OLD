@@ -111,6 +111,10 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'ac-modes 'markdown-mode)
 
+;; sass-mode
+(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+(setq scss-compile-at-save nil)
+
 ;; Note: disabled the parens and quote witch in emacs starter kit
 ;; (search 'ack paredit-open-curly .')
 
