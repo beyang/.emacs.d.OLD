@@ -68,8 +68,7 @@
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (setq ac-auto-start nil)
-(ac-set-trigger-key "TAB")
-(global-set-key "\M-/" 'auto-complete)
+(ac-set-trigger-key "TAB")              ; M-/ still triggers emacs-style autocomplete, TAB gives a fancy menu
 (global-auto-complete-mode t)
 (add-to-list 'ac-modes 'go-mode)
 
