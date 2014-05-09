@@ -15,17 +15,6 @@
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-;; Keyboard shortcuts
-(global-set-key (kbd "C-c c") 'comment-region)
-(global-set-key (kbd "C-c u") 'uncomment-region)
-(global-set-key (kbd "C-o") 'goto-line)
-
-;; Whitespace
-(require 'whitespace)
-(global-whitespace-mode 1)
-;; (setq whitespace-action '(auto-cleanup)) ;; automatically clean up bad whitespace
-(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab)) ;; only show bad whitespace
-
 ;; Show matching parens
 (show-paren-mode 1)
 (setq show-paren-delay 0)
@@ -43,16 +32,6 @@
 
 ;; Open pop-to-buffer in vertically adjacent buffer (rather than horizontal)
 (setq split-height-threshold nil)
-
-;; Coffee-mode
-(setq coffee-tab-width 2)  ; tabs are 2 spaces
-
-;; Handlebars-mode
-(require 'handlebars-mode)
-(add-to-list 'auto-mode-alist '("\\.hbs.html$" . handlebars-mode))
-(add-hook 'handlebars-mode-hook (lambda ()  ; Comment-syntax kludge
-				  (setq comment-start "{{!")
-				  (setq comment-end "}}")))
 
 ;; .zsh files
 (add-to-list 'auto-mode-alist '("\\.zsh" . sh-mode))
@@ -97,12 +76,6 @@
 (eval-after-load "go-mode"
   '(require 'flymake-go))
 
-;; windmove keys
-(global-set-key (kbd "C-x <up>") 'windmove-up)
-(global-set-key (kbd "C-x <down>") 'windmove-down)
-(global-set-key (kbd "C-x <left>") 'windmove-left)
-(global-set-key (kbd "C-x <right>") 'windmove-right)
-
 ;; yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
@@ -119,4 +92,4 @@
 ;; (search 'ack paredit-open-curly .')
 
 ;; misc
-(setq-default fill-column 150)
+(setq-default fill-column 120)
