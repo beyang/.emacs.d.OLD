@@ -2,3 +2,4 @@
 ;; goes in this file
 
 (message "Running post-init.el")
+(add-hook 'js-mode-hook (lambda () (setq-default indent-tabs-mode t)))

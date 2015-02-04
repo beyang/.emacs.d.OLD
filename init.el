@@ -2,6 +2,7 @@
 (let ((emacs-home (file-name-directory load-file-name)))
   (add-to-list 'load-path emacs-home)
   (add-to-list 'load-path (concat emacs-home "/manual"))
+  (add-to-list 'load-path (concat emacs-home "/manual/emacs-sourcegraph-mode"))
   ;; (add-to-list 'load-path (concat emacs-home "/manual/go-mode") t)
 )
 
@@ -48,6 +49,12 @@
 
 ;; js-mode
 (setq js-indent-level 2)
+(add-hook 'js-mode-hook (lambda () (setq indent-tabs-mode t
+                                    tab-width 4
+                                    js-indent-level 4
+                                    c-basic-offset 4)))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js-mode))
 
 ;; go-mode latest (hard-linked to $GOROOT/misc/emacs/...), use goimports instead of gofmt
 (setq gofmt-command "goimports")
@@ -92,3 +99,25 @@
 
 ;; misc
 (setq-default fill-column 120)
+
+(require 'sourcegraph-mode)
+(put 'downcase-region 'disabled nil)
+
+
+;; el-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
+
+
+;; jedi
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)                      ; optional
+(setq jedi:complete-on-dot t)                 ; optional
